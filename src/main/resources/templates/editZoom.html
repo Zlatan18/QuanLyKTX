@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<body>
+<div class="col-3"></div>
+<div class="container col-6">
+    <h1>Edit User</h1>
+    <form th:object="${zoom}" th:action="@{save}" action="#" method="post">
+        <input type="hidden" th:field="*{id}">
+        <div>
+            <label th:text="MaZoom" th:for="maZoom"></label>
+            <input type="text" th:field="*{maZoom}" class="form-control" placeholder="Mã Phòng"/>
+        </div>
+        <div style="clear: both; display: block; height: 10px"></div>
+        <div>
+            <label th:text="TypeZoom" th:for="typeZoom"></label>
+            <input type="text" th:field="*{typeZoom}" class="form-control" placeholder="Loại Phòng"/>
+        </div>
+        <div style="clear: both; display: block; height: 10px"></div>
+        <div>
+            <label th:text="PriceZoom" th:for="priceZoom"></label>
+            <input type="text" th:field="*{priceZoom}" class="form-control" placeholder="Giá Phòng"/>
+        </div>
+        <div style="clear: both; display: block; height: 10px"></div>
+        <div>
+            <label th:text="HumanZoom" th:for="humanZoom"></label>
+            <input type="text" th:field="*{humanZoom}" class="form-control" placeholder="Số người tối đa"/>
+        </div>
+        <div style="clear: both; display: block; height: 10px"></div>
+        <input type="submit" class="btn btn-success" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

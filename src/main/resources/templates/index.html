@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>User List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<body>
+<div class="col-3"></div>
+<div class="container col-6">
+    <h1>Manage User</h1>
+    <a href="/zoom" class="btn btn-success">Zoom Manager</a>
+    <table class="table table-active">
+        <tr>
+            <th>Mã SV</th>
+            <th>CMT</th>
+            <th>Ngày sinh</th>
+            <th>Lớp</th>
+            <th>Quê quán</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.maSV}"></td>
+            <td th:text="${user.CMT}"></td>
+            <td th:text="${user.birthDay}"></td>
+            <td th:text="${user.classSV}"></td>
+            <td th:text="${user.homeTown}"></td>
+            <td>
+                <a th:href="@{/edit?id={id}(id=${user.id})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete?id={id}(id=${user.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/add" class="btn btn-success">Add User</a>
+</div>
+</body>
+</html>

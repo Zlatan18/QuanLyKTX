@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>User List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<body>
+<div class="col-3"></div>
+<div class="container col-6">
+    <h1>Manage Zoom</h1>
+    <table class="table table-active">
+        <tr>
+            <th>Số phòng</th>
+            <th>Loại Phòng</th>
+            <th>Giá</th>
+            <th>Số người tối đa</th>
+        </tr>
+        <tr th:each="zoom : ${zooms}">
+            <td th:text="${zoom.maZoom}"></td>
+            <td th:text="${zoom.typeZoom}"></td>
+            <td th:text="${zoom.priceZoom}"></td>
+            <td th:text="${zoom.humanZoom}"></td>
+            <td>
+                <a th:href="@{/zoom/edit?id={id}(id=${zoom.id})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete?id={id}(id=${zoom.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a href="/zoom/add" class="btn btn-success">Add Zoom</a>
+</div>
+</body>
+</html>
